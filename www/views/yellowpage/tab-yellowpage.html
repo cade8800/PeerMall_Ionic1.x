@@ -1,0 +1,78 @@
+<ion-view view-title="查找供应商">
+  <ion-nav-buttons side="right">
+    <a class="button button-clear button-icon ion-ios-search" ng-click="modal.show()"></a>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-thumbnail-left item-remove-animate item-icon-right"
+                ng-repeat="item in main.data.supplierList.SupplierList">
+        <img ng-src="{{item.AgencyImg!=null?('data:image/png;base64,'+item.AgencyImg):'img/ui/defaultagencyimg.png'}}">
+        <h2>{{item.AgencyName!=null?item.AgencyName:item.ShortName}}</h2>
+        <p ng-if="item.BusinessArea!=null">业务区域：{{item.BusinessArea}}</p>
+        <p ng-if="item.BusinessType!=null">业务类型：{{item.BusinessType}}</p>
+        <p>联系人：{{item.ContactName}}</p>
+        <p>联系方式：{{item.MobilePhone}}</p>
+        <span class="agencyGroupType" ng-if="item.AgencyGroupType!=null">{{item.AgencyGroupType}}</span>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+        <ion-option-button ng-if="item.AgencyRelationState==0" class="button-balanced bgff9103">建立中</ion-option-button>
+        <ion-option-button ng-if="item.AgencyRelationState==1" class="button-balanced bgB4D465">已建立</ion-option-button>
+        <ion-option-button ng-if="item.AgencyRelationState==2" class="button-balanced bgff9103"
+                           ng-click="main.methods.buildRelation(item.AgencyId)">建立关系
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+    <p ng-if="!main.data.isLoad" class="notmoredateload">没有更多数据了</p>
+    <ion-infinite-scroll ng-if="main.data.isLoad" on-infinite="main.methods.scrollLoad()" immediate-check="false" distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+
+  <script id="modal.html" type="text/ng-template">
+    <div class="modal">
+      <ion-header-bar class="bar-assertive">
+        <h1 class="title">搜索-供应商选项</h1>
+        <button class="button button-icon icon ion-android-close" ng-click="modal.hide()"></button>
+      </ion-header-bar>
+      <ion-content>
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">供应商名称</span>
+            <input ng-model="main.parameter.SupplierName" type="text">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">业务区域</span>
+            <input ng-model="main.parameter.BusinessArea" type="text">
+          </label>
+          <label class="item item-input item-select">
+            <div class="input-label">
+              业务类型
+            </div>
+            <select ng-model="main.parameter.Business">
+              <option ng-repeat="item in main.data.bssTypeList.Root.ChildrenDicEntities" value="{{item.DicName}}">
+                {{item.DicName}}
+              </option>
+            </select>
+          </label>
+          <label class="item item-input item-select">
+            <div class="input-label">
+              关系状态
+            </div>
+            <select ng-model="main.parameter.AgencyRelationState">
+              <option value="3" selected>所有</option>
+              <option value="0">建立中</option>
+              <option value="1">已建立</option>
+              <option value="2">未建立</option>
+            </select>
+          </label>
+        </div>
+      </ion-content>
+      <ion-footer-bar>
+        <div class="button-bar">
+          <button class="button button-light" ng-click="main.methods.clickReset()">重置</button>
+          <button class="button button-assertive" ng-click="main.methods.selectSupplier()">确定</button>
+        </div>
+      </ion-footer-bar>
+    </div>
+  </script>
+
+</ion-view>

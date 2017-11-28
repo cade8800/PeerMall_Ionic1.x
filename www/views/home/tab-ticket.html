@@ -1,0 +1,104 @@
+<ion-view view-title="门票详细" hide-tabs="true">
+    <!--  <ion-nav-bar class="bar-assertive">
+        <ion-nav-back-button>返回</ion-nav-back-button>
+      </ion-nav-bar>-->
+    <ion-content class="item-divider">
+        <ion-slide-box does-continue="true" show-pager="true">
+            <ion-slide ng-repeat="item in ticket.Media.ImageInfoList">
+                <div class="slider-slide-image" style="height: 210px;">
+                    <img style="width: 100%;height: 210px;" ng-src="{{item.path}}" />
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+
+        <div class="list">
+            <div class="item">
+                <h2>{{ticket.TicketName}}</h2>
+                <h2 class="assertive"></h2>
+                <p>门票类型：{{ticket.TicketType}}</p>
+                <p class="product_line_price">
+                    <span class="colorFE9C00">{{ticket.MinipeerPrice}}</span>
+                    {{ticket.ProductCurrencyCode}}起
+                </p>
+            </div>
+        </div>
+        <div class="list" ng-if="currentAgencyId!=undefined||ticket.StrLocation!=null">
+            <a ng-if="currentAgencyId!=undefined" class="item item-icon-right" href="#/tab/supplier/{{ticket.AgencyId}}">
+                供应商:{{ticket.AgencyName}}
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </a>
+            <a ng-if="ticket.StrLocation!=null" class="item item-icon-right" href="#/tab/map/{{ticket.longitude}}/{{ticket.latitude}}{{currentAgencyId!=undefined?('/'+currentAgencyId):''}}">
+                {{ticket.StrLocation}}
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </a>
+        </div>
+
+        <div class="list">
+            <div class="item">产品推荐</div>
+            <div class="item item-body">
+                <p ng-bind-html="ticket.ProductRecommend"></p>
+            </div>
+        </div>
+        <div class="list">
+            <div class="item">门票描述</div>
+            <div class="item item-body">
+                <p ng-bind-html="ticket.TicketDescription"></p>
+            </div>
+        </div>
+
+    </ion-content>
+    <ion-footer-bar class="footerbuttonsmenu">
+        <div class="row">
+            <a class="button button-full col iconbtn" ng-click="methods.referenceBtn()"><img src="img/ui/cite.png">引用</a>
+            <a class="button button-full col iconbtn" ng-click="methods.copyBtn()"><img src="img/ui/copy.png">复制</a>
+            <a class="button button-full col iconbtn" ng-click="methods.consultingBtn()"><img src="img/ui/call.png">咨询</a>
+            <a class="button button-assertive button-full col col-50" ng-click="startDatePicker()">立即预订</a>
+        </div>
+    </ion-footer-bar>
+
+    <script id="ordermodal.html" type="text/ng-template">
+        <div class="modal">
+            <ion-header-bar class="bar-assertive">
+                <h1 class="title">填写订单</h1>
+                <button class="button button-icon icon ion-android-close" ng-click="closeorderModal()"></button>
+            </ion-header-bar>
+            <ion-content>
+                <div class="list lineheight2">
+                    <div class="item item-divider">数量选择</div>
+
+                    <div class="item row" ng-repeat="item in LineQuoteDtos.QuoteDtos" style="width: auto;">
+                        <div class="col col-20">{{item.QuoteName}}</div>
+                        <div class="col col-25">
+                            {{item.QuoteItemsDtos[0].SalePrice}}&nbsp;
+                            <small>{{ticket.ProductCurrencyCode}}</small>
+                        </div>
+                        <div class="col col-20">
+                            {{item.IsMore?"有位":("余"+(item.QuoteCount-item.SoldNumber))}}
+                        </div>
+                        <div class="col col-34">
+                            <numbutton-Component ng-model="item.nnum"></numbutton-Component>
+                        </div>
+                    </div>
+
+                    <div class="item item-divider">游客信息</div>
+                    <label class="item item-input">
+                        <input type="text" ng-model="visitor.name" placeholder="姓名">
+                    </label>
+                    <label class="item item-input">
+                        <input type="text" ng-model="visitor.phone" placeholder="手机">
+                    </label>
+                </div>
+
+            </ion-content>
+            <ion-footer-bar>
+                <div class="button-bar">
+                    <button class="button button-dark button-clear" ng-click="totalComputing()">
+                        总计：{{totalAmount}}{{ticket.ProductCurrencyCode}}
+                    </button>
+                    <button class="button button-assertive " ng-click="submitOrders()">结算</button>
+                </div>
+            </ion-footer-bar>
+        </div>
+    </script>
+
+</ion-view>

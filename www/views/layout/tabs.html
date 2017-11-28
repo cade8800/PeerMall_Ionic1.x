@@ -1,0 +1,25 @@
+<ion-tabs class="tabs-icon-top tabs-color-active-assertive" ng-class="{'tabs-item-hide': $root.hideTabs}">
+  <!-- tabs-assertive-->
+
+
+  <ion-tab title="首页" icon-off="icon-uut-home-out" icon-on="icon-uut-home" href="#/tab/home">
+    <ion-nav-view name="tab-home"></ion-nav-view>
+  </ion-tab>
+
+
+  <ion-tab title="供应商" icon-off="icon-uut-agency-out" icon-on="icon-uut-agency" href="#/tab/supplier">
+    <ion-nav-view name="tab-supplier"></ion-nav-view>
+  </ion-tab>
+
+
+  <ion-tab title="找供应商" icon-off="icon-uut-search-agency-out" icon-on="icon-uut-search-agency" href="#/tab/supplieryellowpage">
+    <ion-nav-view name="tab-supplieryellowpage"></ion-nav-view>
+  </ion-tab>
+
+
+  <ion-tab title="更多" icon-off="ion-more" icon-on="ion-more" ng-click="showActionSheet()">
+    <!--<ion-nav-view name="tab-account"></ion-nav-view>-->
+  </ion-tab>
+
+
+</ion-tabs>

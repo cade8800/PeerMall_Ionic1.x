@@ -1,0 +1,39 @@
+<ion-view view-title="同业商城">
+
+  <!-- <ion-nav-bar class="bar-assertive nav-title-slide-ios7">
+     <ion-nav-buttons side="left">
+         <a href="{{backUrl}}" class="button back-button buttons button-clear header-item">
+           <i class="icon ion-ios-undo-outline"></i>
+         </a>
+       </ion-nav-buttons>
+  </ion-nav-bar>-->
+
+  <ion-content class="item-divider has-header" style="padding-top: 0px;">
+
+    <div class="row-species" ng-repeat="item in ProductTypes">
+      <div class="row">
+        <div class="col col-33 col-center left-col">
+          <a href="{{item.DicCode|GetProductTypeLine}}/all" class="item">
+            <img class="categoryImg" ng-src="img/ui/{{item.DicCode}}.png"/>
+            <p>{{item.DicName}}</p>
+          </a>
+        </div>
+        <div class="col col-66 padding-right-0">
+          <div class="col right-col right-col-top borderbottom">
+            <a class="item assertive" href="{{item.DicCode|GetProductTypeLine}}/hot">
+              <img class="imghot" src="img/ui/hot.png"/>
+              <span class="textspan">热门推荐</span>
+            </a>
+          </div>
+          <div class="col right-col">
+            <a class="item assertive" href="{{item.DicCode|GetProductTypeLine}}/ref">
+              <img class="imghot" src="img/ui/timelimit.png"/>
+              <span class="textspan">限时甩卖</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

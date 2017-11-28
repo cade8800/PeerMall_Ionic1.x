@@ -1,0 +1,199 @@
+<ion-view view-title="{{data.agencyInfo.AgencyName==null?data.agencyInfo.ShortName:data.agencyInfo.AgencyName}}"
+          hide-tabs="true">
+
+  <ion-nav-buttons side="right">
+    <a class="button button-clear button-icon icon-uut-menu" ng-click="modal.show()"></a>
+  </ion-nav-buttons>
+
+  <ion-content class="item-divider">
+
+    <ion-list>
+      <ion-item class="item-thumbnail-left item-remove-animate item-icon-right">
+        <img ng-src="{{data.agencyInfo.AgencyImg!=null?('data:image/png;base64,'+data.agencyInfo.AgencyImg):'img/ui/defaultagencyimg.png'}}">
+        <h2>{{data.agencyInfo.AgencyName==null?data.agencyInfo.ShortName:data.agencyInfo.AgencyName}}</h2>
+        <p>{{data.agencyInfo.Area}}</p>
+        <p>{{data.agencyInfo.Summary}}</p>
+      </ion-item>
+    </ion-list>
+
+    <div class="marquee" ng-if="notice!=undefined">
+      <img class="left" src="img/ui/notice.png"/>
+      <div class="center" direction="left">
+        <a class="marqueeclass" href="#/tab/notice/{{data.currentAgencyId}}/{{notice.APGuid}}">
+          {{notice.Title}}
+        </a>
+      </div>
+      <a class="right" class="col col-10 dark" style="text-align: center;" href="#/tab/notice/{{data.currentAgencyId}}">
+        <img src="img/ui/goright.png"/></a>
+    </div>
+
+    <div class="row-species" ng-repeat="item in ProductTypes">
+      <div class="row">
+        <div class="col col-33 col-center left-col">
+          <a href="{{item.DicCode|GetProductTypeLine}}/{{data.currentAgencyId}}/all" class="item">
+            <img class="categoryImg" ng-src="img/ui/{{item.DicCode}}.png"/>
+            <p>{{item.DicName}}</p>
+          </a>
+        </div>
+        <div class="col col-66 padding-right-0">
+          <div class="col right-col right-col-top borderbottom">
+            <a class="item assertive" href="{{item.DicCode|GetProductTypeLine}}/{{data.currentAgencyId}}/hot">
+              <img class="imghot" src="img/ui/hot.png"/>
+              <span class="textspan">热门推荐</span>
+            </a>
+          </div>
+          <div class="col right-col">
+            <a class="item assertive" href="{{item.DicCode|GetProductTypeLine}}/{{data.currentAgencyId}}/ref">
+              <img class="imghot" src="img/ui/timelimit.png"/>
+              <span class="textspan">限时甩卖</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+
+  <ion-footer-bar>
+    <div class="button-bar">
+      <a href="mailto:{{data.agencyInfo.Email}}" class="abutton borderright"><i class="icon-uut-email"></i></a>
+      <a href="tel:{{data.agencyInfo.TelePhone}}" class="abutton"><i class="icon-uut-call"></i></a>
+    </div>
+  </ion-footer-bar>
+
+  <script id="modal.html" type="text/ng-template">
+    <div class="modal">
+      <ion-header-bar class="bar-assertive">
+        <h1 class="title">{{data.agencyInfo.AgencyName==null?data.agencyInfo.ShortName:data.agencyInfo.AgencyName}}</h1>
+        <button class="button button-icon icon ion-android-close" ng-click="modal.hide()"></button>
+      </ion-header-bar>
+
+      <ion-content>
+        <ion-slide-box class="agency-detail-slide" does-continue="true" show-pager="true" zooming="true">
+          <ion-slide>
+            <div class="list card">
+              <div class="item">
+                <h2>简介</h2>
+              </div>
+              <div class="item item-body">
+                <p>
+                  {{data.agencyInfo.Summary}}
+                </p>
+              </div>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="list card">
+              <div class="item">
+                <h2>荣誉</h2>
+              </div>
+              <div class="item item-body">
+                <p>
+                  {{data.agencyInfo.Honor}}
+                </p>
+              </div>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="list card">
+              <div class="item">
+                <h2>文化</h2>
+              </div>
+              <div class="item item-body">
+                <p>
+                  {{data.agencyInfo.Culture}}
+                </p>
+              </div>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="list card">
+              <div class="item">
+                <h2>大事件</h2>
+              </div>
+              <div class="item item-body">
+                <p class="color666 padding">{{data.agencyInfo.BreakingNews}}</p>
+              </div>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="list card">
+              <div class="item">
+                <h2>诚信档案</h2>
+              </div>
+              <div class="item item-body">
+                <div class="list">
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">机构名称</span>
+                    <input type="text" ng-model="data.agencyInfo.AgencyName" readonly>
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">机构简称</span>
+                    <input type="text" ng-model="data.agencyInfo.ShortName" readonly>
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">业务类型</span>
+                    <input type="text" ng-model="data.agencyInfo.Area" readonly>
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">业务范围</span>
+                    <input type="text" ng-model="data.agencyInfo.BusinessScope" readonly>
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">认证情况</span>
+                    <input type="text" ng-model="data.agencyInfo.Authenticates" readonly>
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">机构类型</span>
+                    <input type="text" ng-model="data.agencyInfo.FlatType" readonly>
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">所属公司</span>
+                    <input type="text" ng-model="data.agencyInfo.ParentAgencyName" readonly>
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">公司规模</span>
+                    <input type="text" ng-model="data.agencyInfo.CompanySize" readonly>
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">工商注册号</span>
+                    <input type="text" ng-model="data.agencyInfo.BusinessLicense" readonly>
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">组织机构代码号</span>
+                    <input type="text" ng-model="data.agencyInfo.OrganizationCode" readonly>
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">企业注册类型</span>
+                    <input type="text" ng-model="data.agencyInfo.EnterpriseRegistrationType" readonly>
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">注册资金</span>
+                    <input type="text" ng-model="data.agencyInfo.RegisteredCapital" readonly>
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">企业性质</span>
+                    <input type="text" ng-model="data.agencyInfo.FlatType" readonly>
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">法人代表</span>
+                    <input type="text" ng-model="data.agencyInfo.LegalRepresentative" readonly>
+                  </label>
+                  <label class="item item-input item-stacked-label">
+                    <span class="input-label">注册年份</span>
+                    <input type="text" ng-model="data.agencyInfo.RegistrationYear" readonly>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </ion-slide>
+
+
+        </ion-slide-box>
+      </ion-content>
+
+
+    </div>
+  </script>
+
+</ion-view>

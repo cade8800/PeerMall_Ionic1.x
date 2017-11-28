@@ -1,0 +1,616 @@
+/* Empty. Add your own CSS if you like */
+.row-species {
+  margin-top: 5px;
+  background-color: #fff;
+}
+
+.row-species .imghot {
+  width: 25px;
+  margin-right: 12px;
+}
+
+.row-species .row {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.row-species .categoryImg {
+  max-width: 70px;
+  max-height: 70px;
+  vertical-align: middle;
+  margin-top: 3px;
+  margin-bottom: 8px;
+}
+
+.row-species .borderbottom {
+  border-bottom: 1px solid #ddd;
+}
+
+.row-species .item {
+  padding: 12px;
+}
+
+.row-species .item p {
+  font-size: 100%;
+}
+
+.row-species .item .textspan {
+  position: relative;
+  bottom: 5px;
+}
+
+.row-species h5 {
+  color: #444;
+}
+
+.row-species h6 {
+  color: #666;
+}
+
+.row-species a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  border-width: 0px;
+}
+
+.row-species .left-col {
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+.row-species .left-col a {
+  padding: 0px;
+  text-align: center;
+}
+
+.row-species .right-col {
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+.row-species .right-col a {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.row-species .padding-right-0 {
+  padding-right: 0px;
+}
+
+.row-species .right-col-top {
+  margin-bottom: 3px;
+}
+
+.row-eedc {
+  margin: 5px 5px;
+}
+
+.row-eedc img {
+  /*  max-width: 113px;*/
+  max-height: 113px;
+  width: 100%;
+  height: 100%;
+}
+
+.row-eedc h5 {
+  color: #444;
+}
+
+.row-eedc h6 {
+  color: #666;
+}
+
+.row-eedc a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.row-eedc b {
+  position: absolute;
+  right: 2%;
+}
+
+.item-divider {
+  padding-top: 0px;
+}
+
+.coloca0 {
+  color: #a0a0a0;
+}
+
+.color333 {
+  color: #333;
+}
+
+.color666 {
+  color: #666;
+}
+
+.eedclist {
+  background-color: #ffffff;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.eedclist p {
+  font-size: 14px;
+}
+
+.eedclist .img {
+  text-align: center;
+}
+
+.fontsize24 {
+  font-size: 24px;
+}
+
+.sidemenucontent h5 {
+  padding-left: 8%;
+  color: #666;
+}
+
+.float-left-list {
+  float: left;
+  width: 46%;
+  margin: 5px 5px;
+}
+
+.float-left-list a {
+  padding: 8px;
+}
+
+.float-left-list a img {
+  width: 100%;
+  height: 100%;
+}
+
+.float-left-list a p {
+  margin-top: 0px;
+}
+
+.no-padding-row {
+  padding: 0;
+}
+
+.no-padding-row > .row {
+  padding: 0;
+}
+
+.no-padding-row .col {
+  padding: 0;
+}
+
+.singlehome h2 {
+  /*color: #ffffff;*/
+}
+
+.singlehome {
+  margin-bottom: 0px;
+}
+
+.singlehome > .item-avatar {
+  padding-left: 85px;
+  border-width: 0px;
+  border-bottom-width: 1px;
+  /*  background-image: url(../img/timg.jpg);*/
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: center top;
+  background-size: 100%;
+}
+
+.singlehome > .item-avatar > img {
+  border-radius: 4px;
+  max-width: 60px;
+  max-height: 60px;
+}
+
+.singlehome > .item-avatar > p {
+  font-size: 12px;
+}
+
+/*跑马灯*/
+.marquee {
+  padding: 5px;
+  overflow: hidden;
+  height: 22px;
+}
+
+.marquee .left {
+  position: absolute;
+  width: 20px;
+}
+
+.marquee .center {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.marquee .right {
+  position: absolute;
+  right: 3px;
+  top: 103px;
+}
+
+.marquee .right img {
+  height: 18px;
+}
+
+/*我*/
+.account {
+  margin: 20px 0px;
+}
+
+/*轮播*/
+.banner {
+  height: 200px;
+}
+
+.banner img {
+  width: 100%;
+}
+
+/*页内tabs选项卡*/
+.page-tabs .tabs {
+  position: relative;
+}
+
+.page-tabs .pane, .view {
+  position: absolute;
+  top: auto;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.linedetail-mail h4 {
+  color: #444;
+}
+
+.linedetail-mail p {
+  color: #666;
+}
+
+.linedetail-mail span {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.detailFootButtonList {
+  padding: 0px;
+}
+
+.detailFootButtonList .button-bar > .button:first-child {
+  border-radius: 0px 0px 0px 0px;
+  border-right: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+}
+
+.detailFootButtonList .button-bar > .button:nth-child(2) {
+  border-top: 1px solid #ddd;
+}
+
+.detailFootButtonList .button-bar > .button:last-child {
+  border-radius: 0px 0px 0px 0px;
+}
+
+.numbuttonComponent {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  width: 107px;
+  height: 37px;
+  margin: 0px;
+  overflow: hidden;
+}
+
+.numbuttonComponent input {
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
+  border-width: 0px;
+  float: left;
+  font-size: 14px;
+  text-align: center;
+}
+
+.numbuttonComponent input[type="button"] {
+  background-color: #f8f8f8;
+  font-weight: bold;
+  width: 35px;
+}
+
+.lineheight2 .col {
+  line-height: 2.5;
+  text-align: left;
+}
+
+.fulldiv {
+  width: 100%;
+  height: 100vh;
+}
+
+.footerbuttonsmenu {
+  padding: 0px;
+  margin: 0px;
+}
+
+.footerbuttonsmenu .row, .col {
+  padding: 0px;
+  margin: 0px;
+}
+
+.footerbuttonsmenu .button-full {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.footerbuttonsmenu .button {
+  font-size: inherit;
+  line-height: 42px;
+}
+
+.fontsize12 {
+  font-size: 12px;
+}
+
+.ononeline {
+  display: inline-flex;
+}
+
+.width80 {
+  width: 80%;
+}
+
+.marqueeclass {
+  padding-right: 80px;
+  color: #8B8B8B;
+  text-decoration: none;
+}
+
+.categoryDiv {
+  /*height: 220px;*/
+  width: 100%;
+  margin-top: 10px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.categoryDiv .left {
+  width: 32%;
+  float: left;
+}
+
+.categoryDiv .right {
+  width: 68;
+
+}
+
+.agencyGroupType {
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  background-image: url(../img/ui/supplierbg.png);
+  width: 100px;
+  height: 28px;
+  background-size: 100px;
+
+  overflow: inherit;
+  color: #fff;
+  font-size: 10px;
+  padding-left: 35px;
+  padding-top: 4.5px;
+}
+
+.button.bgB4D465 {
+  background-color: #B4D465;
+}
+
+.button.bgff9103 {
+  background-color: #ff9103;
+}
+
+.button-bar .abutton {
+  width: 50%;
+  font-size: 23px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 40px;
+}
+
+.button-bar .borderright {
+  border-right: 1px solid #ddd;
+}
+
+.product_line_price {
+  position: absolute;
+  right: 15px;
+  bottom: 0.5px;
+}
+
+.colorFE9C00 {
+  color: #FE9C00;
+}
+
+.item p.colorFE9C00 {
+  color: #FE9C00;
+}
+
+.product_list_price {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.bar_nobg_noborder {
+  background-color: #f8f8f8;
+  background-size: 100% 0px;
+}
+
+.button-bar .btnactive {
+  border-radius: 0;
+  border-bottom: 2px solid #E43436;
+  color: #444;
+}
+
+.product_list a:first-child {
+  border-top-width: 0px;
+}
+
+.footerbuttonsmenu a img {
+  width: 20px;
+  position: absolute;
+  top: 3px;
+}
+
+.footerbuttonsmenu .iconbtn {
+  padding-top: 12px;
+  color: #A1A1A1;
+  font-size: 8px;
+}
+
+.daytriptab {
+  background-image: url(../img/ui/dayimg.png);
+  width: 65px;
+  height: 27px;
+  background-size: cover;
+  overflow: hidden;
+  color: #fff;
+  padding-top: 4px;
+  padding-left: 6px;
+  display: inline-table;
+}
+
+.color01D1FE {
+  color: #01D1FE;
+  font-size: 20px;
+}
+
+.daytriplist {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.daytriplist .head{
+  overflow: hidden;
+}
+.daytriplist .head  .button{
+  float: right;
+  color: #C1C1C1;
+}
+.daytriplist .head .button:before {
+  font-size: 24px;
+}
+.daytriplist .body{
+  border-top:1px solid #ddd;
+}
+
+.actionSheet {
+  text-align: center;
+}
+
+.actionSheet img {
+  position: absolute;
+  left: 28%;
+  top: 10px;
+}
+
+.actionSheet span {
+  color: #fff;
+  font-size: 80%;
+}
+
+.actionSheetuut {
+  width: 24px;
+}
+
+.actionSheetyx {
+  width: 25px;
+}
+
+.actionSheetme {
+  width: 20px;
+}
+
+.action-sheet-group.action-sheet-options {
+  background-color: #A1A1A1;
+}
+
+.action-sheet-group.action-sheet-options button:first-child {
+  border-top-width: 0px;
+}
+
+.colorAEAEAE{
+  color: #AEAEAE;
+}
+
+.morelinetripbtnimg{
+  width: 18px;
+  position: absolute;
+  right: 85px;
+  top: 3px;
+}
+
+.bar .button.icon-uut-menu:before {
+  font-size: 18px;
+}
+
+.product-search-bth{
+  position: absolute;
+  right: 13px;
+  bottom: 0px;
+}
+.product-bar-lable{
+  background-color: #fff;
+  border: 1px solid #cccccc;
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px 35px 5px 10px;
+  height: 32px;
+}
+.product-bar-lable input{
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid rgb(204, 204, 204);
+  border-radius: 0px;
+}
+.bar .button-icon.fontsizeauto:before{
+  font-size: 20px;
+}
+.bar .button-clear.ion-ios-search-strong.product-search-bth:before{
+  font-size: 28px;
+}
+.agency-detail-slide .slider-pager{
+  top:3px;
+}
+button.button.button-icon.icon-uut-navicon-out:before {
+  font-size: 20px;
+}
+.iframeContent>.scroll{
+  height: 100%;
+}
+
+.notmoredateload{
+  text-align: center;
+  color: #CBCBCB;
+  font-size: 12px;
+}
+
+.list>.item-body>.nomargintop{
+  margin-top: 0px;
+}
+
+.ng-binding.white-space{
+  white-space: pre-wrap;
+}

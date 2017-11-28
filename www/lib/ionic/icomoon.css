@@ -1,0 +1,121 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?kmkkxt');
+  src:  url('fonts/icomoon.eot?kmkkxt#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?kmkkxt') format('truetype'),
+    url('fonts/icomoon.woff?kmkkxt') format('woff'),
+    url('fonts/icomoon.svg?kmkkxt#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-uut-agency:before {
+  content: "\e900";
+  color: rgb(228, 53, 53);
+  font-size:25px;
+}
+.icon-uut-agency .path1:before {
+  content: "\e900";
+  color: rgb(228, 53, 53);
+}
+.icon-uut-agency .path2:before {
+  content: "\e901";
+  margin-left: -0.810546875em;
+  color: rgb(255, 255, 255);
+}
+.icon-uut-agency-out:before {
+  content: "\e902";
+  color: #a0a0a0;
+  font-size:25px;
+}
+.icon-uut-call:before {
+  content: "\e903";
+  color: #d81e06;
+}
+.icon-uut-close:before {
+  content: "\e904";
+  color: #fff;
+}
+.icon-uut-down:before {
+  content: "\e905";
+  color: #9d9d9d;
+}
+.icon-uut-email:before {
+  content: "\e906";
+  color: #d71e06;
+}
+.icon-uut-home:before {
+  content: "\e907";
+  color: #e43535;
+  font-size:25px;
+}
+.icon-uut-home-out:before {
+  content: "\e908";
+  color: #a1a1a1;
+  font-size:25px;
+}
+.icon-uut-left:before {
+  content: "\e909";
+  color: #fff;
+}
+.icon-uut-menu:before {
+  content: "\e90a";
+  color: #fff;
+}
+.icon-uut-more:before {
+  content: "\e90b";
+  color: #e43535;
+}
+.icon-uut-more-out:before {
+  content: "\e90c";
+  color: #a1a1a1;
+}
+.icon-uut-navicon:before {
+  content: "\e90d";
+  color: #a1a1a1;
+}
+.icon-uut-navicon-out:before {
+  content: "\e90e";
+  color: #fff;
+}
+.icon-uut-right:before {
+  content: "\e90f";
+  color: #a4a4a4;
+}
+.icon-uut-right-deep:before {
+  content: "\e910";
+  color: #8b8b8b;
+}
+.icon-uut-search:before {
+  content: "\e911";
+  color: #fff;
+}
+.icon-uut-search-agency:before {
+  content: "\e912";
+  color: #e43535;
+  font-size:25px;
+}
+.icon-uut-search-agency-out:before {
+  content: "\e913";
+  color: #a0a0a0;
+  font-size:25px;
+}
+.icon-uut-up:before {
+  content: "\e914";
+  color: #a6a6a6;
+}

@@ -1,0 +1,37 @@
+<ion-view view-title="供应商">
+
+  <ion-nav-buttons side="right">
+    <button ng-click="methods.toggleLeftSideMenu()" class="button button-icon icon-uut-navicon-out"></button>
+  </ion-nav-buttons>
+
+  <ion-side-menus>
+    <ion-side-menu-content>
+      <ion-content>
+
+        <div class="list">
+          <a ng-repeat="item in data.supplierList" class="item item-thumbnail-left  item-icon-right"
+             href="#/tab/supplier/{{item.AgencyId}}">
+            <img
+              ng-src="{{item.AgencyImg!=null?'data:image/png;base64,'+item.AgencyImg:'img/ui/defaultagencyimg.png'}}">
+            <h2>{{item.AgencyName!=null?item.AgencyName:item.ShortName}}</h2>
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </a>
+        </div>
+        <ion-infinite-scroll ng-if="data.isLoad" on-infinite="methods.scrollLoad()">
+        </ion-infinite-scroll>
+        <p ng-if="!data.isLoad" class="notmoredateload">没有更多数据了</p>
+
+      </ion-content>
+    </ion-side-menu-content>
+    <ion-side-menu side="left" width="180">
+      <ion-content>
+        <ion-list ng-repeat="item in data.supplierType">
+          <ion-radio ng-click="methods.typeSelect(item.Id)" ng-value="item.Id" class="fontsize12">
+            {{item.Name}}
+          </ion-radio>
+        </ion-list>
+      </ion-content>
+    </ion-side-menu>
+  </ion-side-menus>
+
+</ion-view>

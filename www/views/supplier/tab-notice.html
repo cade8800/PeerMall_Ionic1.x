@@ -1,0 +1,25 @@
+<ion-view view-title="公告列表" hide-tabs="true">
+  <ion-content>
+
+    <div class="bar bar-subheaderheader item-input-inset">
+      <label class="item-input-wrapper">
+        <input ng-model="data.parameter.Title" class="light-bg" type="text" placeholder="搜索">
+      </label>
+      <button ng-click="methods.selectBtn()" class="button button-assertive button-clear icon ion-ios-search"></button>
+    </div>
+
+    <div class="list">
+      <a class="item item-icon-right" ng-repeat="item in data.noticeList.Data" href="#/tab/notice//{{item.APGuid}}">
+        <h2>{{item.Title}}</h2>
+        <p>{{item.CreateDateTime| date:'yyyy-MM-dd HH:mm'}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </a>
+    </div>
+
+
+    <ion-infinite-scroll ng-if="data.isLoad" on-infinite="methods.scrollLoad()" immediate-check="false" distance="1%">
+    </ion-infinite-scroll>
+    <p ng-if="!data.isLoad" class="notmoredateload">{{data.loadText}}</p>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,157 @@
+<ion-view view-title="酒店详情" hide-tabs="true">
+
+  <!--  <ion-nav-bar class="bar-assertive">
+      <ion-nav-back-button>返回</ion-nav-back-button>
+    </ion-nav-bar>-->
+
+
+  <ion-content class="item-divider">
+
+
+    <ion-slide-box does-continue="true" show-pager="true">
+
+      <ion-slide ng-repeat="item in hotel.Media.ImageInfoList">
+        <div class="slider-slide-image" style="height: 210px;">
+          <img style="width: 100%;height: 210px;" ng-src="{{item.path}}">
+        </div>
+      </ion-slide>
+
+    </ion-slide-box>
+
+
+    <div class="list">
+      <div class="item">
+        <h2>{{hotel.HotelName}}</h2>
+        <p>级别：{{hotel.HotelLevel}}</p>
+        <p class="product_line_price">
+          <span class="colorFE9C00">{{hotel.MinipeerPrice}}</span>
+          {{hotel.ProductCurrencyCode}}起
+        </p>
+      </div>
+    </div>
+
+    <div class="list">
+      <a ng-if="data.currentAgencyId!=undefined" class="item item-icon-right" href="#/tab/supplier/{{hotel.AgencyId}}">
+        供应商:{{hotel.AgencyName}}
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </a>
+      <a class="item item-icon-right"
+         href="#/tab/map/{{hotel.longitude}}/{{hotel.latitude}}{{data.currentAgencyId!=undefined?('/'+data.currentAgencyId):''}}">
+        {{hotel.StrLocation}}
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </a>
+    </div>
+    <div class="list">
+      <div class="item">
+        酒店设施
+      </div>
+      <div class="item item-body">
+        <p class="nomargintop">
+          <button class="button button-small" ng-repeat="item in HotelFacilities" style="margin-right: 6px;">{{item}}
+          </button>
+        </p>
+      </div>
+    </div>
+    <div class="list">
+      <div class="item">酒店简介</div>
+      <div class="item item-body">
+        <p class="nomargintop">{{hotel.HotelBaseInfo}}</p>
+      </div>
+    </div>
+    <div class="list">
+      <div class="item">预订须知</div>
+      <div class="item item-body">
+        <p class="nomargintop">{{hotel.HotelCheckIn}}</p>
+        <p>{{hotel.HotelCancelPolicy}}</p>
+      </div>
+    </div>
+    <div class="list">
+      <div class="item">设施服务</div>
+      <div class="item item-body">
+        <p class="nomargintop">{{hotel.HouseFacility}}</p>
+        <p>{{hotel.ParkingService}}</p>
+        <p>{{hotel.RepastFacility}}</p>
+        <p>{{hotel.Entertainment}}</p>
+      </div>
+    </div>
+
+
+  </ion-content>
+
+  <ion-footer-bar class="footerbuttonsmenu">
+    <div class="row">
+      <a class="button button-full col iconbtn" ng-click="methods.referenceBtn()"><img src="img/ui/cite.png">引用</a>
+      <a class="button button-full col iconbtn" ng-click="methods.copyBtn()"><img src="img/ui/copy.png">复制</a>
+      <a class="button button-full col iconbtn" ng-click="methods.consultingBtn()"><img src="img/ui/call.png">咨询</a>
+      <a class="button button-assertive button-full col col-50" ng-click="tripmodal.show()">立即预订</a>
+    </div>
+  </ion-footer-bar>
+
+  <script id="ordermodal.html" type="text/ng-template">
+    <div class="modal">
+      <ion-header-bar class="bar-assertive">
+        <h1 class="title">填写订单</h1>
+        <button class="button button-icon icon ion-android-close" ng-click="tripmodal.hide()"></button>
+      </ion-header-bar>
+      <ion-content class="item-divider">
+
+        <div class="list">
+          <div class="item">
+            <h2>{{hotel.HotelName}}</h2>
+            <p>{{hotel.HotelLevel}}</p>
+          </div>
+        </div>
+
+        <div class="list">
+          <div class="item">
+            <div class="row text-center">
+              <div class="col">入住</div>
+              <div class="col">
+                <button class="button button-stable button-small">共{{data.dateDiff}}晚</button>
+              </div>
+              <div class="col">离店</div>
+            </div>
+            <div class="row text-center">
+              <div class="col" ng-click="startDatePicker()">{{data.startDate| date:'yyyy-MM-dd'}}</div>
+              <div class="col">|</div>
+              <div class="col" ng-click="endDatePicker()">{{data.endDate| date:'yyyy-MM-dd'}}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="list card" ng-repeat="item in data.endQuotelist">
+          <div class="item">
+            {{item.name}}
+            <span class="item-note">
+                <numbutton-Component ng-if="item.state==''" ng-model="item.nnum"></numbutton-Component>
+              <span ng-if="item.state!=''">满房</span>
+            </span>
+            <p class="colorFE9C00"><small>均</small> {{item.price}} <small>{{hotel.ProductCurrencyCode}}</small></p>
+          </div>
+        </div>
+
+        <div class="list">
+          <div class="item">游客信息</div>
+          <label class="item item-input">
+            <input ng-model="data.visitor.name" type="text" placeholder="入住人">
+          </label>
+          <label class="item item-input">
+            <input ng-model="data.visitor.phone" type="text" placeholder="手机">
+          </label>
+        </div>
+
+
+      </ion-content>
+      <ion-footer-bar>
+        <div class="button-bar">
+          <button class="button button-dark button-clear" ng-click="methods.totalComputing()">
+            合:{{totalAmount}}{{hotel.ProductCurrencyCode}}
+          </button>
+          <button class="button button-assertive " ng-click="methods.submitOrders()">结算</button>
+        </div>
+      </ion-footer-bar>
+    </div>
+  </script>
+
+
+</ion-view>

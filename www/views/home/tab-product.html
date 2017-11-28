@@ -1,0 +1,100 @@
+<ion-view view-title="商品列表" hide-tabs="true">
+
+  <ion-content>
+
+    <div class="bar bar-subheaderheader item-input-inset bar_nobg_noborder">
+      <button ng-click="modal.show()" class="button button-icon icon-uut-navicon fontsizeauto"></button>
+      <label class="product-bar-lable">
+        <input type="text" placeholder="请输入搜索内容" ng-model="parameter.KeyWord">
+      </label>
+      <button class="button button-assertive button-clear ion-ios-search-strong product-search-bth"
+              ng-click="methods.searchBtn()"></button>
+    </div>
+
+    <div class="button-bar">
+      <a class="button colorAEAEAE" ng-class="barbtnclass.AllProduct" ng-click="methods.allProduct()">所有产品</a>
+      <a class="button colorAEAEAE" ng-class="barbtnclass.IsRefProduct" ng-click="methods.isRefProduct()">限时甩卖</a>
+      <a class="button colorAEAEAE" ng-class="barbtnclass.IsHotProduct" ng-click="methods.isHotProduct()">热门推荐</a>
+    </div>
+
+    <div class="list product_list">
+      <a ng-repeat="item in productList.Items" class="item item-thumbnail-left"
+         href="#/tab/home/{{item.ProductType | toProductType}}/{{item.ProductId}}{{currentAgencyId!=undefined?('/'+currentAgencyId):''}}">
+        <img ng-src="{{item.CoverImage==''?'img/ui/defaultproductimg.png':item.CoverImage}}">
+        <h2>{{item.ProductName}}</h2>
+        <p>{{item.Destination}}</p>
+        <p>供应商：{{item.SupplierName}}</p>
+        <p class="product_list_price">
+          <span class="colorFE9C00">{{item.MinipeerPrice>0?item.MinipeerPrice:item.Days[0].LowestPrice}}</span>{{item.CurrencyCode}}起
+        </p>
+      </a>
+    </div>
+
+    <ion-infinite-scroll ng-if="isLoad" on-infinite="methods.loadMoreData()" immediate-check="false" distance="1%">
+    </ion-infinite-scroll>
+
+    <p ng-if="!isLoad" class="notmoredateload">{{loadText}}</p>
+
+  </ion-content>
+
+  <script id="modal.html" type="text/ng-template">
+    <div class="modal">
+      <ion-header-bar class="bar-assertive">
+        <h1 class="title">搜索-商品选项</h1>
+        <button class="button button-icon icon ion-android-close" ng-click="modal.hide()"></button>
+      </ion-header-bar>
+      <ion-content class="has-header item-divider">
+
+        <div class="list sidemenucontent">
+          <h5>类别</h5>
+          <label class="item item-input item-select">
+            <div class="input-label">
+              请选择
+            </div>
+            <!--            <select ng-model="parameter.ProductSubTypes" ng-options="item.DicName for item in TypeChildren[0].ChildrenDicEntities"></select>-->
+            <select ng-model="parameter_try.ProductSubTypes">
+              <option selected="selected">所有分类</option>
+              <option ng-repeat="item in TypeChildren[0].ChildrenDicEntities">{{item.DicName}}</option>
+            </select>
+          </label>
+          <h5>日期</h5>
+          <label class="item item-input">
+            <span class="input-label">起始日期</span>
+            <input ng-model="parameter_try.StartDate" type="date">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">结束日期</span>
+            <input ng-model="parameter_try.EndDate" type="date">
+          </label>
+          <h5>价格</h5>
+          <label class="item item-input">
+            <span class="input-label">最低价</span>
+            <input ng-model="parameter.MinPrice" type="number">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">最高价</span>
+            <input ng-model="parameter.MaxPrice" type="number">
+          </label>
+
+          <h5>供应商</h5>
+          <label class="item item-input item-select">
+            <div class="input-label">
+              请选择
+            </div>
+            <select ng-model="parameter_try.SupplierGroupIds">
+              <option ng-repeat="item in supplierGroup" value="{{item.Id}}">{{item.Name}}</option>
+            </select>
+          </label>
+        </div>
+
+      </ion-content>
+      <ion-footer-bar>
+        <div class="button-bar">
+          <button class="button button-stable" ng-click="methods.leftMenuresetBtn()">重置</button>
+          <button class="button button-assertive" ng-click="methods.leftMenusearchBtn()">确定</button>
+        </div>
+      </ion-footer-bar>
+    </div>
+  </script>
+
+</ion-view>
